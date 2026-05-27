@@ -2217,6 +2217,7 @@ linear-gradient(90deg, #3EE795 0%, #00AC59 100%);
     top: 15px;
     font-size: 20px;
     z-index: 2;
+    color: black;
 }
 
 .consult-modal .crown-content {
@@ -3686,6 +3687,7 @@ linear-gradient(90deg, #3EE795 0%, #00AC59 100%);
     .consult-close {
         right: 10px;
         top: 5px;
+        
     }
 
 }
