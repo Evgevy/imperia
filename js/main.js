@@ -23,6 +23,20 @@ document.addEventListener("DOMContentLoaded", function () {
         body.classList.remove('no-scroll');
     })
 
+    document.querySelectorAll('[data-bs-toggle="modal"]').forEach(btn => {
+
+        btn.addEventListener('click', () => {
+    
+            menu.classList.remove('active');
+    
+            burger.classList.remove('active');
+    
+            body.classList.remove('no-scroll');
+    
+        });
+    
+    });
+
 
     if (document.querySelector('.hand')) {
 
@@ -328,6 +342,83 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
         });
+    }
+
+    
+    if (document.querySelector('.calc')) {
+        
+        
+        const customSelects = document.querySelectorAll('.custom-select');
+
+        customSelects.forEach(select => {
+            const trigger = select.querySelector('.custom-select-trigger');
+            const optionsContainer = select.querySelector('.custom-options');
+            const options = select.querySelectorAll('.custom-option');
+            const hiddenInput = select.querySelector('.calc-select-value');
+
+            
+            trigger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                
+                customSelects.forEach(otherSelect => {
+                    if (otherSelect !== select) {
+                        otherSelect.classList.remove('open');
+                    }
+                });
+                select.classList.toggle('open');
+            });
+
+            
+            options.forEach(option => {
+                option.addEventListener('click', function (e) {
+                    e.stopPropagation();
+
+                    const value = this.getAttribute('data-value');
+                    const content = this.innerHTML; 
+
+                    
+                    options.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+
+                    
+                    hiddenInput.value = value;
+
+                    
+                    trigger.innerHTML = `<span>${content}</span>`;
+                    
+                    
+                    select.classList.remove('open');
+
+                    
+                    calculateTabTotal(select.closest('.tab-pane'));
+                });
+            });
+        });
+
+        
+        document.addEventListener('click', function () {
+            customSelects.forEach(select => select.classList.remove('open'));
+        });
+
+        
+        function calculateTabTotal(pane) {
+            if (!pane) return;
+
+            const hiddenInputs = pane.querySelectorAll('.calc-select-value');
+            const priceValueSpan = pane.querySelector('.price-value');
+            let total = 0;
+
+            hiddenInputs.forEach(input => {
+                total += parseInt(input.value) || 0;
+            });
+
+            
+            if (total > 0) {
+                priceValueSpan.textContent = total.toLocaleString('ru-RU') + '\u00A0₽';
+            } else {
+                priceValueSpan.textContent = '0 ₽';
+            }
+        }
     }
 
 });

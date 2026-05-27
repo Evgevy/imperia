@@ -24,10 +24,7 @@
     <svg width="0" height="0" style="position:absolute">
         <defs>
             <clipPath id="sovet-clip" clipPathUnits="objectBoundingBox">
-                <!-- 
-                   Координаты пересчитаны из Фигмы (1440x115) 
-                   для вашей секции высотой 885px 
-                -->
+
                 <path d="M 0,0.116 
                          C 0,0.116, 0.302,0, 0.5,0 
                          C 0.697,0, 1,0.116, 1,0.116 
@@ -97,7 +94,7 @@
                                         fill="#379F6D" />
                                 </svg>
                             </a>
-                            <button class="header-btn btn-green">
+                            <button class="header-btn btn-green" data-bs-toggle="modal" data-bs-target="#consultModal">
                                 Написать
                             </button>
                         </div>
@@ -158,7 +155,7 @@
                             </a>
                         </div>
 
-                        <button class="header-btn btn-green">
+                        <button class="header-btn btn-green" data-bs-toggle="modal" data-bs-target="#consultModal">
                             Написать
                         </button>
                     </div>
@@ -220,7 +217,8 @@
                             <p class="hero-bottom-text">Прийти на аудиенцию, познакомиться <br>с&nbsp;командой
                                 и&nbsp;получить 3&nbsp;варианта решения</p>
                         </div>
-                        <button type="button" class="hero-btn btn-gold">
+                        <button type="button" class="hero-btn btn-gold" data-bs-toggle="modal"
+                            data-bs-target="#consultModal">
                             <span>Получить аудиенцию</span>
                         </button>
                     </div>
@@ -748,7 +746,276 @@
 
         <section class="calc">
             <div class="container">
-                <div class="parasha">Калькулятор</div>
+
+
+                <ul class="nav nav-pills calc-tabs justify-content-center gap-2 mb-5" id="calcTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="all4-tab" data-bs-toggle="pill" data-bs-target="#all4"
+                            type="button" role="tab">Стоимость имплантации ALL-ON-4</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="all6-tab" data-bs-toggle="pill" data-bs-target="#all6"
+                            type="button" role="tab">Стоимость имплантации ALL-ON-6</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="crown-tab" data-bs-toggle="pill" data-bs-target="#crown"
+                            type="button" role="tab">Стоимость импланта с коронкой</button>
+                    </li>
+                </ul>
+
+
+                <div class="tab-content calc-content-wrapper" id="calcTabsContent">
+
+                    <!-- ТАБ 1: ALL-ON-4 -->
+                    <div class="tab-pane fade show active" id="all4" role="tabpanel">
+                        <div class="calc-box">
+                            <div class="calc-header row">
+                                <h3 class="calc-title title col-12 col-md-6">Рассчитайте стоимость <br>имплантации
+                                    <span>All-on-4</span>
+                                </h3>
+                                <p class="calc-subtitle col-12 col-md-6">Выберите имплант и&nbsp;тип
+                                    протеза&nbsp;&mdash; <br>получите
+                                    точную цену</p>
+                            </div>
+
+                            <div class="row g-4 mb-5">
+                                <div class="col-12 col-md-6">
+                                    <label class="calc-label mb-4">Какую систему имплантов используем?</label>
+                                    <div class="custom-select" data-type="implant">
+                                        <div class="custom-select-trigger">
+                                            <span>Выбрать систему...</span>
+                                        </div>
+                                        <div class="custom-options">
+                                            <div class="custom-option selected" data-value="0">Выбрать систему...</div>
+                                            <div class="custom-option" data-value="114400">
+                                                <img src="img/flag-south-korea.png" class="flag-icon" alt="Ю. Корея">
+                                                OSSTEM —
+                                                <span>114&nbsp;400&nbsp;₽</span>
+                                            </div>
+                                            <div class="custom-option" data-value="142000">
+                                                <img src="img/flag-south-korea.png" class="flag-icon" alt="Ю. Корея">
+                                                Implantium
+                                                — <span>142&nbsp;000&nbsp;₽</span>
+                                            </div>
+                                            <div class="custom-option" data-value="250320">
+                                                <img src="img/flag-switzerland.png" class="flag-icon" alt="Швеция">
+                                                Nobel — <span>250&nbsp;320&nbsp;₽</span>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" class="calc-select-value" value="0">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="calc-label mb-4">Какую систему имплантов используем?</label>
+                                    <div class="custom-select" data-type="prosthesis">
+                                        <div class="custom-select-trigger">
+                                            <span>Выбрать протез...</span>
+                                        </div>
+                                        <div class="custom-options">
+                                            <div class="custom-option selected" data-value="0">Выбрать протез...</div>
+                                            <div class="custom-option" data-value="65000">Временный адаптационный протез
+                                                — <span>65&nbsp;000&nbsp;₽</span></div>
+                                            <div class="custom-option" data-value="174000">Постоянный акриловый протез —
+                                                <span>174&nbsp;000&nbsp;₽</span>
+                                            </div>
+                                            <div class="custom-option" data-value="208800">Полный съемный протез на
+                                                фрезерованной балке — <span>208&nbsp;800&nbsp;₽</span></div>
+                                            <div class="custom-option" data-value="290000">Постоянный несъемный
+                                                циркониевый протез — <span>290&nbsp;000&nbsp;₽</span></div>
+                                        </div>
+                                        <input type="hidden" class="calc-select-value" value="0">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="calc-footer">
+                                <div class="calc-total-left">
+                                    <p class="calc-footer-info mb-1">Зафиксировать стоимость и получить 3 плана лечения
+                                    </p>
+                                    <h4 class="calc-total-price">ИТОГОВАЯ СТОИМОСТЬ: <span
+                                            class="price-value">0&nbsp;₽</span></h4>
+                                </div>
+                                <button type="button" class="btn-gold calc-btn">
+                                    <span>Заморозить цену</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ТАБ 2: ALL-ON-6 -->
+                    <div class="tab-pane fade" id="all6" role="tabpanel">
+                        <div class="calc-box">
+                            <div class="calc-header row">
+                                <h3 class="calc-title title col-12 col-md-6">Рассчитайте стоимость имплантации
+                                    <span>All-on-6</span>
+                                </h3>
+                                <p class="calc-subtitle col-12 col-md-6">Выберите имплант и&nbsp;тип
+                                    протеза&nbsp;&mdash; <br>получите
+                                    точную цену</p>
+                            </div>
+
+                            <div class="row g-4 mb-5">
+                                <div class="col-12 col-md-6">
+                                    <label class="calc-label mb-4">Какую систему имплантов используем?</label>
+                                    <div class="custom-select" data-type="implant">
+                                        <div class="custom-select-trigger">
+                                            <span>Выбрать систему...</span>
+                                        </div>
+                                        <div class="custom-options">
+                                            <div class="custom-option selected" data-value="0">Выбрать систему...</div>
+                                            <div class="custom-option" data-value="156600">
+                                                <img src="img/flag-south-korea.png" class="flag-icon" alt="Ю. Корея">
+                                                OSSTEM —
+                                                <span>156&nbsp;600&nbsp;₽</span>
+                                            </div>
+                                            <div class="custom-option" data-value="213000">
+                                                <img src="img/flag-south-korea.png" class="flag-icon" alt="Ю. Корея">
+                                                Implantium
+                                                — <span>213&nbsp;000&nbsp;₽</span>
+                                            </div>
+                                            <div class="custom-option" data-value="375480">
+                                                <img src="img/flag-switzerland.png" class="flag-icon" alt="Швеция">
+                                                Nobel — <span>375&nbsp;480&nbsp;₽</span>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" class="calc-select-value" value="0">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="calc-label mb-4">Какую систему имплантов используем?</label>
+                                    <div class="custom-select" data-type="prosthesis">
+                                        <div class="custom-select-trigger">
+                                            <span>Выбрать протез...</span>
+                                        </div>
+                                        <div class="custom-options">
+                                            <div class="custom-option selected" data-value="0">Выбрать протез...</div>
+                                            <div class="custom-option" data-value="226200">Постоянный акриловый протез —
+                                                <span>226&nbsp;200&nbsp;₽</span>
+                                            </div>
+                                            <div class="custom-option" data-value="243600">Полный съемный протез на
+                                                фрезерованной балке — <span>243&nbsp;600&nbsp;₽</span></div>
+                                            <div class="custom-option" data-value="406000">Постоянный несъемный
+                                                циркониевый протез — <span>406&nbsp;000&nbsp;₽</span></div>
+                                        </div>
+                                        <input type="hidden" class="calc-select-value" value="0">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="calc-footer calc-footer">
+                                <div class="calc-total-left">
+                                    <p class="calc-footer-info mb-1">Зафиксировать стоимость и получить 3 плана лечения
+                                    </p>
+                                    <h4 class="calc-total-price">ИТОГОВАЯ СТОИМОСТЬ: <span
+                                            class="price-value">0&nbsp;₽</span></h4>
+                                </div>
+                                <button type="button" class="btn-gold calc-btn">
+                                    <span>Заморозить цену</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ТАБ 3: ИМПЛАНТ С КОРОНКОЙ -->
+                    <div class="tab-pane fade" id="crown" role="tabpanel">
+                        <div class="calc-box">
+                            <div class="calc-header row">
+                                <h3 class="calc-title title col-12 col-md-6">Рассчитайте стоимость <span>импланта с
+                                        коронкой</span>
+                                </h3>
+                                <p class="calc-subtitle col-12 col-md-6">Выберите имплант и&nbsp;тип
+                                    протеза&nbsp;&mdash; <br>получите
+                                    точную цену</p>
+                            </div>
+
+                            <div class="row g-4 mb-5">
+                                <div class="col-12 col-md-6">
+                                    <label class="calc-label mb-4">Какие импланты выбираете?</label>
+                                    <div class="custom-select" data-type="implant">
+                                        <div class="custom-select-trigger">
+                                            <span>Выбрать имплант...</span>
+                                        </div>
+                                        <div class="custom-options">
+                                            <div class="custom-option selected" data-value="0">Выбрать имплант...</div>
+                                            <div class="custom-option" data-value="26100">
+                                                <img src="img/flag-south-korea.png" class="flag-icon" alt="Ю. Корея">
+                                                OSSTEM —
+                                                <span>26&nbsp;100&nbsp;₽</span>
+                                            </div>
+                                            <div class="custom-option" data-value="39850">
+                                                <img src="img/flag-south-korea.png" class="flag-icon" alt="Ю. Корея">
+                                                Dentis —
+                                                <span>39&nbsp;850&nbsp;₽</span>
+                                            </div>
+                                            <div class="custom-option" data-value="35500">
+                                                <img src="img/flag-south-korea.png" class="flag-icon" alt="Ю. Корея">
+                                                Dentium
+                                                Super Line — <span>35&nbsp;500&nbsp;₽</span>
+                                            </div>
+                                            <div class="custom-option" data-value="74500">
+                                                <img src="img/flag-switzerland.png" class="flag-icon" alt="Швейцария">
+                                                Straumann
+                                                — <span>74&nbsp;500&nbsp;₽</span>
+                                            </div>
+                                            <div class="custom-option" data-value="62750">
+                                                <img src="img/flag-switzerland.png" class="flag-icon" alt="Швеция">
+                                                Nobel — <span>62&nbsp;750&nbsp;₽</span>
+                                            </div>
+                                            <div class="custom-option" data-value="69750">
+                                                <img src="img/flag-sweden.png" class="flag-icon" alt="Швеция"> ASTRA —
+                                                <span>69&nbsp;750&nbsp;₽</span>
+                                            </div>
+                                            <div class="custom-option" data-value="36900">
+                                                <img src="img/flag-brazil.png" class="flag-icon" alt="Бразилия"> Neodent
+                                                —
+                                                <span>36&nbsp;900&nbsp;₽</span>
+                                            </div>
+                                            <div class="custom-option" data-value="53200">
+                                                <img src="img/flag-germany.png" class="flag-icon" alt="Германия"> Xive —
+                                                <span>53&nbsp;200&nbsp;₽</span>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" class="calc-select-value" value="0">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="calc-label mb-4">Какую поставим коронку?</label>
+                                    <div class="custom-select" data-type="prosthesis">
+                                        <div class="custom-select-trigger">
+                                            <span>Выбрать коронку...</span>
+                                        </div>
+                                        <div class="custom-options">
+                                            <div class="custom-option selected" data-value="0">Выбрать коронку...</div>
+                                            <div class="custom-option" data-value="18000">Временная коронка —
+                                                <span>18&nbsp;000&nbsp;₽</span>
+                                            </div>
+                                            <div class="custom-option" data-value="50000">Металлокерамическая коронка —
+                                                <span>50&nbsp;000&nbsp;₽</span>
+                                            </div>
+                                            <div class="custom-option" data-value="55000">Циркониевая коронка — от
+                                                <span>55&nbsp;000&nbsp;₽</span>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" class="calc-select-value" value="0">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="calc-footer">
+                                <div class="calc-total-left">
+                                    <p class="calc-footer-info mb-1">Зафиксировать стоимость и получить 3 плана лечения
+                                    </p>
+                                    <h4 class="calc-total-price">ИТОГОВАЯ СТОИМОСТЬ: <span
+                                            class="price-value">0&nbsp;₽</span></h4>
+                                </div>
+                                <button type="button" class="btn-gold calc-btn">
+                                    <span>Заморозить цену</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
 
@@ -1309,7 +1576,8 @@
                         <p class="hero-bottom-text">Лечат&nbsp;те, кто&nbsp;учит других врачей. <br>Кандидаты наук лично
                             курируют каждый сложный случай</p>
                     </div>
-                    <button type="button" class="hero-btn btn-gold">
+                    <button type="button" class="hero-btn btn-gold" data-bs-toggle="modal"
+                        data-bs-target="#consultModal">
                         <span>Доверить свой случай</span>
                     </button>
                 </div>
@@ -1770,7 +2038,8 @@
 
                             </div>
 
-                            <button type="button" class="footer-btn btn-green">
+                            <button type="button" class="footer-btn btn-green" data-bs-toggle="modal"
+                                data-bs-target="#consultModal">
                                 Написать
                             </button>
 
@@ -1876,7 +2145,64 @@
 
     </footer>
 
+    <div class="modal fade" id="consultModal" tabindex="-1" aria-hidden="true">
 
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content consult-modal">
+
+                <button type="button" class="consult-close" data-bs-dismiss="modal" aria-label="Close">
+                    ✕
+                </button>
+
+                <div class="crown-content d-flex flex-column h-100">
+
+                    <h2 class="crown-title title">
+                        Бесплатная консультация
+                        <br>
+                        и&nbsp;3&nbsp;плана лечения
+                    </h2>
+
+                    <p class="crown-text">
+                        за один прием
+                    </p>
+
+                    <form class="crown-form">
+
+                        <div class="crown-inputs">
+
+                            <input type="text" placeholder="Имя" class="crown-input">
+
+                            <input type="tel" placeholder="*Телефон" class="crown-input" required>
+
+                        </div>
+
+                        <button type="submit" class="crown-btn btn-gold">
+                            <span>
+                                Получить 3 плана лечения
+                            </span>
+                        </button>
+
+                        <label class="crown-checkbox">
+
+                            <input type="checkbox" checked>
+
+                            <span>
+                                Нажимая кнопку, вы даете согласие
+                                на обработку персональных данных
+                            </span>
+
+                        </label>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
