@@ -889,7 +889,7 @@ linear-gradient(90deg, #3EE795 0%, #00AC59 100%);
 
 .arsenal {
     position: relative;
-    margin-top: -250px;
+    margin-top: -280px;
     overflow: hidden;
 }
 
@@ -2026,7 +2026,7 @@ linear-gradient(90deg, #3EE795 0%, #00AC59 100%);
 .calc {
     background: linear-gradient(180deg, #B1834B 0%, #D08F42 100%);
     overflow: hidden;
-    padding: 100px 0 220px;
+    padding: 100px 0 250px;
     margin: 0 0 100px;
 }
 
@@ -3427,7 +3427,7 @@ linear-gradient(90deg, #3EE795 0%, #00AC59 100%);
     }
 
     .calc {
-        padding: 50px 0 160px;
+        padding: 50px 0 180px;
     }
 
     .calc-title {
