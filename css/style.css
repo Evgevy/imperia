@@ -3877,9 +3877,9 @@ linear-gradient(90deg, #3EE795 0%, #00AC59 100%);
         margin-bottom: 20px;
     }
 
-    .sovet-name br {
+    /* .sovet-name br {
         display: none;
-    }
+    } */
 
     .sovet-name {
         font-size: 32px;
