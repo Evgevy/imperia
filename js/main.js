@@ -94,49 +94,37 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (document.querySelector('.arsenal')) {
-       
-       
-            const slider = document.querySelector('.arsenal-scroll');
-            if (!slider) return;
+        const slider = document.querySelector('.arsenal-scroll');
         
+        if (slider) {
             let isDown = false;
             let startX;
             let scrollLeft;
         
             slider.addEventListener('mousedown', (e) => {
                 isDown = true;
-                
-                // 1. Временно отключаем плавный скролл CSS, чтобы не было дерганий при перетаскивании
                 slider.style.scrollBehavior = 'auto'; 
-                
                 startX = e.pageX - slider.offsetLeft;
                 scrollLeft = slider.scrollLeft;
                 slider.style.cursor = 'grabbing';
             });
         
-            // Слушаем отпускание кнопки на ВСЕМ окне браузера (window), чтобы курсор не залипал
             window.addEventListener('mouseup', () => {
                 if (!isDown) return;
                 isDown = false;
                 slider.style.cursor = 'grab';
-                
-                // Возвращаем плавный скролл CSS обратно для работы стрелок/пагинации
                 slider.style.scrollBehavior = 'smooth'; 
             });
         
-            // Слушаем движение мыши на ВСЕМ окне браузера
             window.addEventListener('mousemove', (e) => {
                 if (!isDown) return;
-                
-                // Предотвращаем стандартное поведение браузера (выделение текста, синий фон)
                 e.preventDefault(); 
                 
                 const x = e.pageX - slider.offsetLeft;
-                const walk = (x - startX) * 1.5; // Скорость скролла
+                const walk = (x - startX) * 1.5; 
                 slider.scrollLeft = scrollLeft - walk;
             });
-        
-        
+        }
     }
 
     if (
@@ -322,25 +310,34 @@ document.addEventListener("DOMContentLoaded", function () {
     
     }
 
-
-    if (document.querySelector('.kings-slider')) {
-        const kingsSlider = new Swiper('.kings-slider', {
-            
-            slidesPerView: 1,  
-            spaceBetween: 15,      
-            grabCursor: true,  
-            speed: 900,
-            navigation: {
-                nextEl: '.kings-next',
-                prevEl: '.kings-prev',
-            },    
     
-            breakpoints: {
-                
-                550: {
-                    slidesPerView: 'auto',
+    const kingsSliders = document.querySelectorAll('.kings-slider');
+
+    if (kingsSliders.length > 0) {
+        kingsSliders.forEach((sliderEl) => {
+            
+            const parentSection = sliderEl.closest('section');
+            
+            
+            const prevBtn = parentSection ? parentSection.querySelector('.kings-prev') : null;
+            const nextBtn = parentSection ? parentSection.querySelector('.kings-next') : null;
+
+            
+            new Swiper(sliderEl, {
+                slidesPerView: 1,  
+                spaceBetween: 15,      
+                grabCursor: true,  
+                speed: 900,
+                navigation: {
+                    nextEl: nextBtn, 
+                    prevEl: prevBtn, 
+                },    
+                breakpoints: {
+                    550: {
+                        slidesPerView: 'auto',
+                    }
                 }
-            }
+            });
         });
     }
 
