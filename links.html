@@ -5,16 +5,179 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Навигация — Империя</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            color: #434343;
+            padding: 32px 24px;
+            max-width: 560px;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #4B3418;
+            margin: 0 0 20px;
+        }
+
+        .links-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 24px;
+            font-size: 14px;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .links-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .links-status {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .links-item--approved .links-status {
+            background: #379F6D;
+        }
+
+        .links-item--review .links-status {
+            background: #E5A823;
+        }
+
+        .links-item--edits .links-status {
+            background: #D64545;
+        }
+
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+        }
+
+        .links-sublist {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            list-style: none;
+            margin: 10px 0 0 0;
+            padding: 0 0 0 20px;
+            border-left: 2px solid #F3F3F3;
+        }
+
+        .links-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .links-item a {
+            color: #379F6D;
+            text-decoration: none;
+        }
+
+        .links-item a:hover {
+            text-decoration: underline;
+        }
+
+        .links-group-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #7c7c7c;
+            margin: 8px 0 4px 20px;
+        }
+    </style>
 </head>
 
 <body>
-    <ul style="display: flex;flex-direction: column;gap: 15px;font-size: 18px;">
-        <li>
+    <h1>Страницы сайта</h1>
+
+    <div class="links-legend">
+        <div class="links-legend-item">
+            <span class="links-item links-item--approved"><span class="links-status"></span></span>
+            <span>Согласовано</span>
+        </div>
+        <div class="links-legend-item">
+            <span class="links-item links-item--review"><span class="links-status"></span></span>
+            <span>На проверке</span>
+        </div>
+        <div class="links-legend-item">
+            <span class="links-item links-item--edits"><span class="links-status"></span></span>
+            <span>Правки</span>
+        </div>
+    </div>
+
+    <ul class="links-list">
+        <li class="links-item links-item--approved">
+            <span class="links-status" title="Согласовано"></span>
             <a href="index.html">Главная</a>
         </li>
-        <li>
+        <li class="links-item links-item--approved">
+            <span class="links-status" title="Согласовано"></span>
             <a href="services.html">Услуги</a>
+        </li>
+        <li class="links-item links-item--review">
+            <span class="links-status" title="На проверке"></span>
+            <a href="implants.html">Импланты</a>
+        </li>
+        <li class="links-item links-item--review">
+            <span class="links-status" title="На проверке"></span>
+            <a href="prosthetics.html">Протезирование</a>
+        </li>
+        <li class="links-item links-item--review">
+            <span class="links-status" title="На проверке"></span>
+            <a href="orthodontics.html">Ортодонтия</a>
+        </li>
+        <li class="links-item links-item--review">
+            <span class="links-status" title="На проверке"></span>
+            <a href="specialists.html">Специалисты</a>
+        </li>
+    </ul>
+
+    <p class="links-group-label">Специалисты</p>
+    <ul class="links-list links-sublist">
+        <li class="links-item links-item--review">
+            <span class="links-status" title="На проверке"></span>
+            <a href="specialist-hasyanov-damir.html">Хасянов Дамир Шамилевич</a>
+        </li>
+        <li class="links-item links-item--review">
+            <span class="links-status" title="На проверке"></span>
+            <a href="specialist-hasyanov-airat.html">Хасянов Айрат Шамилевич</a>
+        </li>
+        <li class="links-item links-item--review">
+            <span class="links-status" title="На проверке"></span>
+            <a href="specialist-hasyanova-elvira.html">Хасянова Эльвира Гаяровна</a>
+        </li>
+        <li class="links-item links-item--review">
+            <span class="links-status" title="На проверке"></span>
+            <a href="specialist-levitsky-viktor.html">Левицкий Виктор Владимирович</a>
+        </li>
+        <li class="links-item links-item--review">
+            <span class="links-status" title="На проверке"></span>
+            <a href="specialist-tsydypova-lyudmila.html">Цыдыпова Людмила Петровна</a>
+        </li>
+        <li class="links-item links-item--review">
+            <span class="links-status" title="На проверке"></span>
+            <a href="specialist-goryacheva-yulia.html">Горячева Юлия Георгиевна</a>
+        </li>
+        <li class="links-item links-item--review">
+            <span class="links-status" title="На проверке"></span>
+            <a href="specialist-oganesov-dmitry.html">Оганезов Дмитрий Георгиевич</a>
+        </li>
+        <li class="links-item links-item--review">
+            <span class="links-status" title="На проверке"></span>
+            <a href="specialist-gorbach-arseny.html">Горбач Арсений Витальевич</a>
         </li>
     </ul>
 </body>
